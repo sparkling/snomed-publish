@@ -1,4 +1,4 @@
-#Database Import
+# Database Import
 Utility for importing Snomed to a relational database, e.g. for use with the web application.
 
 This is the syntax:
