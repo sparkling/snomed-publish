@@ -1,4 +1,4 @@
-#Canonical Form
+# Canonical Form
 This program takes as an input 2 text files in the [RF1](/lib/importexport) format:
 
 1. Set of concepts of this form:
