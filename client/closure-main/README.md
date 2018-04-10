@@ -1,4 +1,4 @@
-#Transitive Closure Generator
+# Transitive Closure Generator
 
 Computes the transitive closure for the given input files, and saves the results out in simple child-parent format to the specified output file. 
 
