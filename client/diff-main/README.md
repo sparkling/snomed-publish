@@ -1,4 +1,4 @@
-#Snomed Diff
+# Snomed Diff
 Finds the difference between two Snomed ontologies.
 
 This is the syntax:
