@@ -2,18 +2,11 @@ IHTSDO Snomed Publication Tools
 ===============================
 Components
 ----------
-* Canonical: Tool for creating the canonical form of the publication
-
-* Test: Sanity test for the canonical form of the publication
-    
-* Web: Object graph browser for the canonical and long form of the publication. 
-
-* Model:
-        Library - Object model for snomed publish applications
-
-* Import Export:
-        Library - Marshall from long/short form serialisation formats, unmarshall to short form
-
+* **Canonical cli**: Tool for creating the canonical form of the publication
+* **Test cli**: Sanity test for the canonical form of the publication
+* **Web**: Object graph browser for the canonical and long form of the publication. 
+* **Model library**: Object model for snomed publish applications
+* **Import Export library** : Marshall from long/short form serialisation formats, unmarshall to short form
 
 How to build
 ------------
