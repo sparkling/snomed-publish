@@ -1,8 +1,8 @@
-#Import / Export Library
+# Import / Export Library
 
 Library for importing and exporting Snomed data in various formats. The parsers and serialisers are available using [HibernateParserFactory](/lib/importexport/src/main/java/com/ihtsdo/snomed/service/parser/HibernateParserFactory.java) and [SnomedSerialiserFactory](/lib/importexport/src/main/java/com/ihtsdo/snomed/service/serialiser/SnomedSerialiserFactory.java)
 
-##Available parsers
+## Available parsers
 
 <table>
   <tr>
@@ -27,7 +27,7 @@ Library for importing and exporting Snomed data in various formats. The parsers 
   </tr>        
 </table>
 
-##Available Serialisers
+## Available Serialisers
 
 <table>
   <tr>
@@ -53,9 +53,9 @@ Library for importing and exporting Snomed data in various formats. The parsers 
 </table>
 
 
-##Format details
+## Format details
 
-###RF1
+### RF1
 Legacy format, superseded by RF2, but still need to produce RF1 format for release. Uses tab-separated-values.
 
     CONCEPTID1  RELATIONSHIPTYPE  CONCEPTID2    RELATIONSHIPGROUP
@@ -66,38 +66,38 @@ Legacy format, superseded by RF2, but still need to produce RF1 format for relea
 The above example is for concepts only - there are other, similar RF1 formats for other component types, e.g. statements and descriptions. Since this is an old format, we'll just ommit these. 
 
 
-###RF2
+### RF2
 Current standard format for capturing all of Snomed. Serialisation format consists of 3 files for concepts, descriptions and OAV triples.  Uses tab-separated-values.
 
-####Format for Concepts
+#### Format for Concepts
 
     id  effectiveTime active  moduleId  definitionStatusId
     100000000 20090731  0 900000000000207008  900000000000074008
     10000006  20020131  1 900000000000207008  900000000000074008
     etc.
 
-####Format for Descriptions
+#### Format for Descriptions
 
     id  effectiveTime active  moduleId  conceptId languageCode  typeId  term  caseSignificanceId
     2915278011  20120731  1 900000000000207008  450653003 en  900000000000013009  Open embolisation of suprarenal artery  900000000000020002
     2916665012  20120731  1 900000000000207008  450698009 en  900000000000003001  Repair of retina (procedure)  900000000000020002
     etc.
 
-####Format for Statements
+#### Format for Statements
 
     id  effectiveTime active  moduleId  sourceId  destinationId relationshipGroup typeId  characteristicTypeId  modifierId
     3829433029  20080731  1 900000000000207008  102977005 102976001 0 116680003 900000000000010007  900000000000451002
     3829434024  20080731  1 900000000000207008  413337008 306751006 0 116680003 900000000000010007  900000000000451002
     etc.
 
-###RDF Schema
+### RDF Schema
 <a href="http://www.w3.org/TR/rdf-schema/" target="_blank">RDF Schema Format<a/>. Requires a full RF2 import (concepts, descriptions, statements) for conversion. Renders the RDF Schema in <a href="http://www.w3.org/TR/REC-rdf-syntax/" target="_blank">RDF/XML format</a>.
 
 For more detail on how we mapped Snomed to RDF Schema, take at look at the <a href="https://sites.google.com/a/ihtsdo.org/technical-dev/write-ups/mapping-snomed-to-rdf-schema" target="_blank">Snomed Documentation</a>.
 
 
 
-###Canonical
+### Canonical
 A special format for representing the canonical form of Snomed. For more information on the canonical form and how it is calculated, see the [canonical library](/lib/canonical)
 
     CONCEPTID1  RELATIONSHIPTYPE    CONCEPTID2  RELATIONSHIPGROUP
@@ -109,7 +109,7 @@ A special format for representing the canonical form of Snomed. For more informa
     etc.
 
 
-###Child-Parent
+### Child-Parent
 A simple format with two columns and no heading, to show parent-child releationships. Used for serialising the results after generating the transitive closure of isA relationships for all concepts. For more information on the algorithm, see the the [closure library](/lib/closure)
 
     609555007   161639008
@@ -119,7 +119,7 @@ A simple format with two columns and no heading, to show parent-child releations
     609555007   138875005
     116680003   138875005
 
-##How to use the parser
+## How to use the parser
 
     File conceptFile, triplesFile, descriptionFile;
     Ontology o = 
@@ -162,14 +162,14 @@ These settings can also be configured in [persistence.xml](/client/import-main/s
 
 For a sample implementation, take a look at the [import client project](/client/import-main).
 
-##How to use the serialiser
+## How to use the serialiser
 
     Set<Statement> statements;
     try(FileWriter fw = new FileWriter(outFile); BufferedWriter bw = new BufferedWriter(fw)){
         SerialiserFactory.getSerialiser(Form.CANONICAL, bw).write(statements);
     }
 
-##Hardware
+## Hardware
 
 We would recommend using a server with fast IO. You will need a minimum 3Gb of RAM for the snapshot version of Snomed, if you are using an in-memory database (the full version will require more). However, we recommend at least 6Gb of RAM available for optimal performance. 
 
