@@ -1,15 +1,15 @@
-#RDF Schema Generator
+# RDF Schema Generator
 
 Command line tool for converting a version of Snomed into RDF Schema RDF/XML. For more information on implementation, see the [Import Export library](/lib/importexport). 
 
-###Building
+### Building
 You will need to have the Java 7 JDK and Maven 3 to build the distribution jar file, and Java 7 JRE in order to run it. To build the distribution, enter the root project directory (two up from this folder) and type:
 
     mvn clean package
     
 The distribution jar file can be found at lib/rdfs-export-main/target/rdfs-export.jar after this. No other file is required in order to run the program, and can be distributed as this single file.
 
-###Usage
+### Usage
 
 For help on how to run the program, type:
 
@@ -31,7 +31,7 @@ which produces
 When you run this program, you have the option of using either a disk based embedded database, or an in-memory database.
 The disk based database is slower to use, but has a smaller memory footprint. If you specify the --location parameter, a disk based database will be used, and the data will be stored in the file specified by this --location parameter. Not specifying the --location parameter forces the use of an in-memory database.
 
-###Example
+### Example
 This sample run
     
 	java -Xmx8000m -jar target/rdfs-export.jar -c sct2_Concept_Snapshot_INT_20120731.txt -t sct2_StatedRelationship_Snapshot_INT_20120731.txt -d sct2_Description_Snapshot-en_INT_20120731.txt -if RF2 -o /tmp/out -of RDF/XML
