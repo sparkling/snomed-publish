@@ -1,10 +1,10 @@
-#Canonical Form Maven Mojo Plugin
+# Canonical Form Maven Mojo Plugin
 
 Maven Mojo plugin for creating the transitive closure of isA relationships. For more information on the internals of this tool, have a look at the [Closure library](/lib/closure).
 
 More Information on [Maven Mojo](http://maven.apache.org/developers/mojo-api-specification.html).
 
-###Configuration Details
+### Configuration Details
 The goal for this plugin is called 'generate-transitive-closure'.
 
 The configuration for this plugin looks like this:
