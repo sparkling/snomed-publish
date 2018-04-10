@@ -11,7 +11,7 @@ Components
 * Model:
         Library - Object model for snomed publish applications
 
-*Import Export:
+* Import Export:
         Library - Marshall from long/short form serialisation formats, unmarshall to short form
 
 
